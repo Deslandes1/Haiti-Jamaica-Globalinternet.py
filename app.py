@@ -1,34 +1,43 @@
 import streamlit as st
 
-# Set up page configurations with a clean responsive layout
+# Force wide, full-screen layout and page configurations
 st.set_page_config(
     page_title="GLOBALINTERNET.PY | JAMAICA",
     page_icon="🇯🇲",
-    layout="centered"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
 # =========================================================================
-# 🌟 POWERFUL CSS ANIMATION ENGINE (Shining Stars & Floating Balloons)
+# 🌟 COMPACT ANIMATION & FULL-SCREEN LAYOUT ENGINE (CSS)
 # =========================================================================
 st.markdown(
     """
     <style>
-    /* Main App Background Configuration */
+    /* Force application to eliminate margins and scrolling */
     .stApp {
         background: linear-gradient(135deg, #060913 0%, #0d1527 100%);
         color: #ffffff;
-        overflow-x: hidden;
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    /* Clean block paddings */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 0rem !important;
+        max-width: 95% !important;
     }
 
     /* --- Shining Star Animations --- */
     @keyframes flashStar {
-        0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
-        50% { opacity: 1; transform: scale(1.2) rotate(180deg); filter: drop-shadow(0 0 10px #ffcc00); }
+        0%, 100% { opacity: 0.2; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 8px #ffcc00); }
     }
     .star {
         position: absolute;
-        width: 4px;
-        height: 4px;
+        width: 3px;
+        height: 3px;
         background: #ffffff;
         border-radius: 50%;
         animation: flashStar 3s infinite ease-in-out;
@@ -36,163 +45,217 @@ st.markdown(
 
     /* --- Floating Balloon Animations --- */
     @keyframes floatUp {
-        0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-        10% { opacity: 0.6; }
-        90% { opacity: 0.6; }
-        100% { transform: translateY(-20vh) translateX(50px); opacity: 0; }
+        0% { transform: translateY(100vh); opacity: 0; }
+        10% { opacity: 0.5; }
+        90% { opacity: 0.5; }
+        100% { transform: translateY(-10vh); opacity: 0; }
     }
     .balloon {
         position: absolute;
-        width: 25px;
-        height: 32px;
-        border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-        animation: floatUp 12s infinite linear;
+        animation: floatUp 10s infinite linear;
         opacity: 0;
-    }
-    .balloon::after {
-        content: "🎈";
-        font-size: 28px;
-        position: absolute;
-        top: -10px;
-        left: -5px;
+        font-size: 24px;
     }
 
     /* --- Brand Header Layout --- */
-    .brand-container {
+    .header-box {
         text-align: center;
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid #00b060; /* Jamaican Green border accents */
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 8px 32px rgba(0, 176, 96, 0.15);
-        margin-bottom: 35px;
+        margin-bottom: 10px;
     }
-    .company-title {
-        font-size: 2.8rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        background: linear-gradient(90deg, #febd11, #ffffff, #00b060); /* Gold, White, Green */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
-    .flag-style {
+    .large-flag {
         font-size: 5rem;
         line-height: 1;
+        margin: 0px 0px 5px 0px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+    }
+    .company-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #febd11, #ffffff, #00b060);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         margin: 0;
-        filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
     }
 
-    /* --- Interactive Action Buttons --- */
+    /* --- Strong White Copy Headings --- */
+    .strong-white-heading {
+        color: #ffffff !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 2px;
+        border-left: 4px solid #00b060;
+        padding-left: 8px;
+    }
+    
+    .about-text {
+        color: #e2e8f0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    /* --- Compact Feature Service Block Cards --- */
+    .service-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(0, 176, 96, 0.2);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        height: 100%;
+    }
+    .service-title {
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: #febd11;
+        margin: 0 0 2px 0;
+    }
+    .service-desc {
+        font-size: 0.85rem;
+        color: #cbd5e1;
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    /* --- Ultra-Compact Action Call Buttons --- */
     .contact-btn {
-        display: block;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: linear-gradient(90deg, #febd11, #00b060);
         color: #060913 !important;
         font-weight: bold;
-        font-size: 1.2rem;
-        padding: 16px;
-        border-radius: 10px;
+        font-size: 0.95rem;
+        padding: 8px;
+        border-radius: 6px;
         text-decoration: none;
-        box-shadow: 0 4px 20px rgba(254, 189, 17, 0.4);
-        transition: 0.3s ease;
-        margin-top: 15px;
+        box-shadow: 0 4px 12px rgba(254, 189, 17, 0.2);
+        margin-top: 2px;
     }
-    .contact-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(0, 176, 96, 0.6);
+    
+    .contact-label {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin-bottom: 1px;
+        font-weight: 500;
     }
     </style>
 
-    <!-- Background FX Injection Layer -->
-    <div class="star" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
-    <div class="star" style="top: 25%; left: 80%; animation-delay: 1s;"></div>
-    <div class="star" style="top: 60%; left: 15%; animation-delay: 0.5s;"></div>
-    <div class="star" style="top: 75%; left: 85%; animation-delay: 1.8s;"></div>
-    <div class="star" style="top: 45%; left: 50%; animation-delay: 2.2s;"></div>
+    <div class="star" style="top: 10%; left: 8%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 20%; left: 90%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 40%; left: 4%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 70%; left: 93%; animation-delay: 1.5s;"></div>
     
-    <div class="balloon" style="left: 15%; animation-delay: 0s; animation-duration: 14s;"></div>
-    <div class="balloon" style="left: 45%; animation-delay: 3s; animation-duration: 11s;"></div>
-    <div class="balloon" style="left: 75%; animation-delay: 6s; animation-duration: 16s;"></div>
+    <div class="balloon" style="left: 12%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
+    <div class="balloon" style="left: 85%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
     """,
     unsafe_allow_html=True
 )
 
 # =========================================================================
-# 🇯🇲 FRONT-END BRAND UI HEADER
+# 🇯🇲 VERY LARGE FLAG & COMPANY TITLE HEADER
 # =========================================================================
 st.markdown(
     """
-    <div class="brand-container">
-        <p class="flag-style">🇯🇲</p>
+    <div class="header-box">
+        <p class="large-flag">🇯🇲</p>
         <h1 class="company-title">GLOBALINTERNET.PY</h1>
-        <p style="color: #febd11; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px;">
-            BUILDING SOVEREIGN GLOBAL DIGITAL ECOSYSTEMS
-        </p>
     </div>
     """,
     unsafe_allow_html=True
 )
 
 # =========================================================================
-# 👨‍💻 ABOUT THE COMPANY SECTION
+# 🏢 ABOUT THE COMPANY (STRONG WHITE)
 # =========================================================================
-st.subheader("👨‍💻 About the Company")
-st.info(
-    "**GlobalInternet.py** was founded by **GESNER DESLANDES** – owner, founder, and lead engineer. "
-    "We build Python‑based software on demand for clients worldwide. Like Silicon Valley, but with a "
-    "Haitian touch and outstanding outcomes."
+st.markdown('<div class="strong-white-heading">👨‍💻 About the Company</div>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div class="about-text">
+        <strong>GlobalInternet.py</strong> was founded by <strong>GESNER DESLANDES</strong> – owner, founder, and lead engineer. 
+        We build Python‑based software on demand for clients worldwide. Like Silicon Valley, but with a Haitian touch and outstanding outcomes.
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
-st.markdown("---")
-
 # =========================================================================
-# 🛠️ SERVICE DISPLAY NODES
+# 🚀 SERVICES MATRIX (GRID ROW)
 # =========================================================================
-st.subheader("🚀 Services We Offer in Jamaica")
+st.markdown('<div class="strong-white-heading">🚀 Services We Offer in Jamaica</div>', unsafe_allow_html=True)
 
-with st.expander("🧠 AI‑powered solutions", expanded=True):
-    st.write("Advanced intelligent systems including smart conversational chatbots, automated data analysis structures, and streamlined business operations automation.")
+# Generate a 4-column balanced configuration layer
+serv_col1, serv_col2, serv_col3, serv_col4 = st.columns(4)
 
-with st.expander("🗳️ Complete election & voting systems", expanded=True):
-    st.write("Highly secure, decentralized, multi‑language corporate or organizational voting frameworks with real‑time server verification matrices.")
-
-with st.expander("🌐 Web applications", expanded=True):
-    st.write("Custom interactive visual dashboards, optimized software internal tools, and robust cloud‑native online platforms built to scale.")
-
-with st.expander("📦 Full package delivery", expanded=True):
-    st.write("We email you the complete, raw source code directory and provide personalized guidance through your deployment installation pipelines. **We build it, you own it.**")
-
-# =========================================================================
-# 📞 SECURE CONTACT TERMINAL ZONE
-# =========================================================================
-st.markdown("---")
-st.subheader("📲 Connect Directly With Our Deployment Desk")
-
-col_phone, col_email = st.columns(2)
-
-with col_phone:
-    st.info("📞 Voice / WhatsApp Support")
+with serv_col1:
     st.markdown(
         """
-        <a class="contact-btn" href="https://wa.me/18768589428" target="_blank">
-            💬 +1 (876) 858-9428
-        </a>
-        """,
+        <div class="service-card">
+            <p class="service-title">🧠 AI‑powered solutions</p>
+            <p class="service-desc">Advanced intelligent systems including smart conversational chatbots, automated data analysis structures, and streamlined business automation.</p>
+        </div>
+        """, unsafe_allow_html=True
+    )
+
+with serv_col2:
+    st.markdown(
+        """
+        <div class="service-card">
+            <p class="service-title">🗳️ Complete election & voting systems</p>
+            <p class="service-desc">Highly secure, decentralized, multi‑language corporate or organizational voting frameworks with real‑time server verification matrices.</p>
+        </div>
+        """, unsafe_allow_html=True
+    )
+
+with serv_col3:
+    st.markdown(
+        """
+        <div class="service-card">
+            <p class="service-title">🌐 Web applications</p>
+            <p class="service-desc">Custom interactive visual dashboards, optimized software internal tools, and robust cloud‑native online platforms built to scale.</p>
+        </div>
+        """, unsafe_allow_html=True
+    )
+
+with serv_col4:
+    st.markdown(
+        """
+        <div class="service-card">
+            <p class="service-title">📦 Full package delivery</p>
+            <p class="service-desc">We email you the complete, raw source code directory and provide personalized guidance through your deployment installation pipelines. We build it, you own it.</p>
+        </div>
+        """, unsafe_allow_html=True
+    )
+
+# =========================================================================
+# 📞 CONNECT DIRECTLY HUB (STRONG WHITE)
+# =========================================================================
+st.markdown('<div class="strong-white-heading">📲 Connect Directly With Our Deployment Desk</div>', unsafe_allow_html=True)
+
+btn_col1, btn_col2 = st.columns(2)
+
+with btn_col1:
+    st.markdown('<div class="contact-label">📞 Voice / WhatsApp Support</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<a class="contact-btn" href="https://wa.me/18768589428" target="_blank">💬 +1 (876) 858-9428</a>',
         unsafe_allow_html=True
     )
 
-with col_email:
-    st.info("📧 Corporate Inquiries Email")
+with btn_col2:
+    st.markdown('<div class="contact-label">📧 Corporate Inquiries Email</div>', unsafe_allow_html=True)
     st.markdown(
-        """
-        <a class="contact-btn" href="mailto:deslandes78@gmail.com">
-            ✉️ deslandes78@gmail.com
-        </a>
-        """,
+        '<a class="contact-btn" href="mailto:deslandes78@gmail.com">✉️ deslandes78@gmail.com</a>',
         unsafe_allow_html=True
     )
 
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.caption("© 2026 GLOBALINTERNET.PY | Serving Sovereignty Across Jamaica. Powered by Streamlit Engine.")
+# =========================================================================
+# 📜 FOOTER BASE NODE
+# =========================================================================
+st.markdown(
+    """
+    <div style="text-align: center; margin-top: 15px; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 5px;">
+        © 2026 GLOBALINTERNET.PY | Serving Sovereignty Across Jamaica. Powered by Streamlit Engine.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
