@@ -24,7 +24,7 @@ st.markdown(
     
     /* Clean block paddings */
     .block-container {
-        padding-top: 1rem !important;
+        padding-top: 0.8rem !important;
         padding-bottom: 0rem !important;
         max-width: 95% !important;
     }
@@ -57,19 +57,24 @@ st.markdown(
         font-size: 24px;
     }
 
-    /* --- Brand Header Layout --- */
-    .header-box {
-        text-align: center;
-        margin-bottom: 10px;
+    /* --- Top-Left Flex Header Layout --- */
+    .header-flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(0, 176, 96, 0.2);
     }
-    .large-flag {
-        font-size: 5rem;
+    .large-flag-left {
+        font-size: 4rem;
         line-height: 1;
-        margin: 0px 0px 5px 0px;
+        margin: 0;
         filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
     }
-    .company-title {
-        font-size: 2.2rem;
+    .company-title-right {
+        font-size: 2.5rem;
         font-weight: 900;
         letter-spacing: 2px;
         background: linear-gradient(90deg, #febd11, #ffffff, #00b060);
@@ -84,7 +89,7 @@ st.markdown(
         font-size: 1.25rem;
         font-weight: bold;
         margin-top: 5px;
-        margin-bottom: 2px;
+        margin-bottom: 3px;
         border-left: 4px solid #00b060;
         padding-left: 8px;
     }
@@ -141,25 +146,26 @@ st.markdown(
     }
     </style>
 
-    <div class="star" style="top: 10%; left: 8%; animation-delay: 0s;"></div>
-    <div class="star" style="top: 20%; left: 90%; animation-delay: 1s;"></div>
-    <div class="star" style="top: 40%; left: 4%; animation-delay: 0.5s;"></div>
-    <div class="star" style="top: 70%; left: 93%; animation-delay: 1.5s;"></div>
+    <!-- Background Decoration Node Injections -->
+    <div class="star" style="top: 15%; left: 35%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 25%; left: 80%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 50%; left: 75%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 75%; left: 20%; animation-delay: 1.5s;"></div>
     
-    <div class="balloon" style="left: 12%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
-    <div class="balloon" style="left: 85%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
+    <div class="balloon" style="left: 45%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
+    <div class="balloon" style="left: 90%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
     """,
     unsafe_allow_html=True
 )
 
 # =========================================================================
-# 🇯🇲 VERY LARGE FLAG & COMPANY TITLE HEADER
+# 🇯🇲 TOP-LEFT FLAG & COMPANY TITLE ROW HEADER
 # =========================================================================
 st.markdown(
     """
-    <div class="header-box">
-        <p class="large-flag">🇯🇲</p>
-        <h1 class="company-title">GLOBALINTERNET.PY</h1>
+    <div class="header-flex-container">
+        <p class="large-flag-left">🇯🇲</p>
+        <h1 class="company-title-right">GLOBALINTERNET.PY</h1>
     </div>
     """,
     unsafe_allow_html=True
