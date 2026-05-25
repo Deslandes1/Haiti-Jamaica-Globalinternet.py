@@ -24,9 +24,20 @@ st.markdown(
     
     /* Clean block paddings */
     .block-container {
-        padding-top: 0.8rem !important;
+        padding-top: 1rem !important;
         padding-bottom: 0rem !important;
         max-width: 95% !important;
+    }
+
+    /* --- Floating Top-Left Corner Flag Icon --- */
+    .corner-sidebar-flag {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        font-size: 3.5rem;
+        line-height: 1;
+        z-index: 9999;
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
     }
 
     /* --- Shining Star Animations --- */
@@ -57,23 +68,12 @@ st.markdown(
         font-size: 24px;
     }
 
-    /* --- Top-Left Flex Header Layout --- */
-    .header-flex-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
+    /* --- Centered Header Layout --- */
+    .header-box {
+        text-align: center;
         margin-bottom: 15px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid rgba(0, 176, 96, 0.2);
     }
-    .large-flag-left {
-        font-size: 4rem;
-        line-height: 1;
-        margin: 0;
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
-    }
-    .company-title-right {
+    .company-title {
         font-size: 2.5rem;
         font-weight: 900;
         letter-spacing: 2px;
@@ -146,26 +146,26 @@ st.markdown(
     }
     </style>
 
-    <!-- Background Decoration Node Injections -->
+    <div class="corner-sidebar-flag">🇯🇲</div>
+
     <div class="star" style="top: 15%; left: 35%; animation-delay: 0s;"></div>
     <div class="star" style="top: 25%; left: 80%; animation-delay: 1s;"></div>
     <div class="star" style="top: 50%; left: 75%; animation-delay: 0.5s;"></div>
     <div class="star" style="top: 75%; left: 20%; animation-delay: 1.5s;"></div>
     
-    <div class="balloon" style="left: 45%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
-    <div class="balloon" style="left: 90%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
+    <div class="balloon" style="left: 30%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
+    <div class="balloon" style="left: 85%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
     """,
     unsafe_allow_html=True
 )
 
 # =========================================================================
-# 🇯🇲 TOP-LEFT FLAG & COMPANY TITLE ROW HEADER
+# 🌐 CENTERED COMPANY TITLE HEADER
 # =========================================================================
 st.markdown(
     """
-    <div class="header-flex-container">
-        <p class="large-flag-left">🇯🇲</p>
-        <h1 class="company-title-right">GLOBALINTERNET.PY</h1>
+    <div class="header-box">
+        <h1 class="company-title">GLOBALINTERNET.PY</h1>
     </div>
     """,
     unsafe_allow_html=True
@@ -182,6 +182,7 @@ st.markdown(
         We build Python‑based software on demand for clients worldwide. Like Silicon Valley, but with a Haitian touch and outstanding outcomes.
     </div>
     """,
+    leaving_prose_untouched=True,
     unsafe_allow_html=True
 )
 
