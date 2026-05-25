@@ -29,17 +29,6 @@ st.markdown(
         max-width: 95% !important;
     }
 
-    /* --- Floating Top-Left Corner Flag Icon --- */
-    .corner-sidebar-flag {
-        position: absolute;
-        top: 15px;
-        left: 20px;
-        font-size: 3.5rem;
-        line-height: 1;
-        z-index: 9999;
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
-    }
-
     /* --- Shining Star Animations --- */
     @keyframes flashStar {
         0%, 100% { opacity: 0.2; transform: scale(0.8); }
@@ -68,13 +57,19 @@ st.markdown(
         font-size: 24px;
     }
 
-    /* --- Centered Header Layout --- */
+    /* --- Brand Header Layout --- */
     .header-box {
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+    }
+    .large-flag {
+        font-size: 5rem;
+        line-height: 1;
+        margin: 0px 0px 5px 0px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
     }
     .company-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         font-weight: 900;
         letter-spacing: 2px;
         background: linear-gradient(90deg, #febd11, #ffffff, #00b060);
@@ -89,7 +84,7 @@ st.markdown(
         font-size: 1.25rem;
         font-weight: bold;
         margin-top: 5px;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
         border-left: 4px solid #00b060;
         padding-left: 8px;
     }
@@ -146,25 +141,24 @@ st.markdown(
     }
     </style>
 
-    <div class="corner-sidebar-flag">🇯🇲</div>
-
-    <div class="star" style="top: 15%; left: 35%; animation-delay: 0s;"></div>
-    <div class="star" style="top: 25%; left: 80%; animation-delay: 1s;"></div>
-    <div class="star" style="top: 50%; left: 75%; animation-delay: 0.5s;"></div>
-    <div class="star" style="top: 75%; left: 20%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 10%; left: 8%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 20%; left: 90%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 40%; left: 4%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 70%; left: 93%; animation-delay: 1.5s;"></div>
     
-    <div class="balloon" style="left: 30%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
+    <div class="balloon" style="left: 12%; animation-delay: 0s; animation-duration: 9s;">🎈</div>
     <div class="balloon" style="left: 85%; animation-delay: 4s; animation-duration: 11s;">🎈</div>
     """,
     unsafe_allow_html=True
 )
 
 # =========================================================================
-# 🌐 CENTERED COMPANY TITLE HEADER
+# 🇯🇲 VERY LARGE FLAG & COMPANY TITLE HEADER
 # =========================================================================
 st.markdown(
     """
     <div class="header-box">
+        <p class="large-flag">🇯🇲</p>
         <h1 class="company-title">GLOBALINTERNET.PY</h1>
     </div>
     """,
@@ -182,7 +176,6 @@ st.markdown(
         We build Python‑based software on demand for clients worldwide. Like Silicon Valley, but with a Haitian touch and outstanding outcomes.
     </div>
     """,
-    leaving_prose_untouched=True,
     unsafe_allow_html=True
 )
 
